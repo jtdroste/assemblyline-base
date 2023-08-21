@@ -443,6 +443,9 @@ DEFAULT_INGESTER = {
 class RedisServer(odm.Model):
     host: str = odm.Keyword(description="Hostname of Redis instance")
     port: int = odm.Integer(description="Port of Redis instance")
+    username: str = od.Optional(odm.Keyword(description="Username for use with Redis ACL"))
+    password: str = od.Optional(odm.Keyword(description="Password for use with Redis ACL"))
+    cluster: bool = odm.Optional(odm.Boolean(description="Is Redis operating in cluster mode?"))
 
 
 DEFAULT_REDIS_NP = {
